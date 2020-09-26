@@ -1,0 +1,10 @@
+71321367,jorge,aaaaa,aaaa,aaaaa,aaa,aaa,aaaa,IDA
+43164698,asdas,asdasd,a,asdasdasda,asdas,asdasd,asdasd,IDA
+71321367,jorge,aaaaa,aaaa,aaaaa,aaa,aaa,aaaa,IDA
+43164698,asdas,asdasd,a,asdasdasda,asdas,asdasd,asdasd,IDA
+713,asdasd,asdasd,asdasd,asdasd,asdasd,asdasd,asda,01
+70437040,LUIS ANTONIO,CANCINO,TAPIA,929121229,50,27/06/19,27/07/19,01
+04743075,ELARD RICARDO,RODRIGUEZ,MARCA,925391658,60,28/06/2019,28/07/2019,IDA
+70321131,MARKO ANTONIO,RIVAS,RIOS,925391658,60,01/07/2019,01/08/2019,IDA
+,,,,,,,,
+,,,,,,,,

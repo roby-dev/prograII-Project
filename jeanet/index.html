@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  socket.on("newUserLocation", (newUserLocation) => {
+      console.log('newUserLocation:', newUserLocation)
+  })
+</script>
+<body>
+
+<h1>JeaNET</h1>
+<p>v2.1</p>
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+IDA,Samsung,negro,cuadrado,950,Google O,320,Activo
+01,asd,adsa,asd,adas,asda,asdasd,Activo

@@ -1,0 +1,55 @@
+ CreateCircle(-18.005837, -70.225521, 100.899431);
+
+//crear Circulo
+        //------------------------------------------------
+        private void CreateCircle(Double lat, Double lon, double radius)
+        {
+            PointLatLng point = new PointLatLng(lat, lon);
+            int segments = 1000;
+
+            List<PointLatLng> gpollist = new List<PointLatLng>();
+
+            for (int i = 0; i < segments; i++)
+                gpollist.Add(FindPointAtDistanceFrom(point, i, radius / 1000));
+
+            GMapPolygon gpol = new GMapPolygon(gpollist, "pol");
+
+            gpol.Stroke = new Pen(Color.LightCyan, 1);
+
+
+            markerOverlay.Polygons.Add(gpol);
+        }
+
+        public static GMap.NET.PointLatLng FindPointAtDistanceFrom(GMap.NET.PointLatLng startPoint, double initialBearingRadians, double distanceKilometres)
+        {
+            const double radiusEarthKilometres = 50000.01;
+            var distRatio = distanceKilometres / radiusEarthKilometres;
+            var distRatioSine = Math.Sin(distRatio);
+            var distRatioCosine = Math.Cos(distRatio);
+
+            var startLatRad = DegreesToRadians(startPoint.Lat);
+            var startLonRad = DegreesToRadians(startPoint.Lng);
+
+            var startLatCos = Math.Cos(startLatRad);
+            var startLatSin = Math.Sin(startLatRad);
+
+            var endLatRads = Math.Asin((startLatSin * distRatioCosine) + (startLatCos * distRatioSine * Math.Cos(initialBearingRadians)));
+
+            var endLonRads = startLonRad + Math.Atan2(
+                          Math.Sin(initialBearingRadians) * distRatioSine * startLatCos,
+                          distRatioCosine - startLatSin * Math.Sin(endLatRads));
+
+            return new GMap.NET.PointLatLng(RadiansToDegrees(endLatRads), RadiansToDegrees(endLonRads));
+        }
+
+        public static double DegreesToRadians(double degrees)
+        {
+            const double degToRadFactor = Math.PI / 180;
+            return degrees * degToRadFactor;
+        }
+
+        public static double RadiansToDegrees(double radians)
+        {
+            const double radToDegFactor = 180 / Math.PI;
+            return radians * radToDegFactor;
+        }

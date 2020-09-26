@@ -1,0 +1,11 @@
+try
+            {
+                lblSegundos.Text = DateTime.Now.ToString("ss");
+                cbar.Value = Convert.ToInt32(DateTime.Now.ToString("ss"));
+                lblHora.Text = DateTime.Now.ToString("hh:mm");
+                lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(("Ocurrio Error:" + ("\r\n" + ("\r\n" + ("Detalles:" + ("\r\n" + ex.Message))))), Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
